@@ -21,11 +21,15 @@ class Result {
 
     public static int birthdayCakeCandles(List<Integer> candles) {
         int size = candles.size();
-        Collections.sort(candles);
-        int count = 0;
+        int count = 1;
+        int maxHeight = 0;
         for(int i =0; i<size; i++){
-            if(candles.get(i) == candles.get(size-1)){
-                count++;
+            int temp = candles.get(i);
+            if(temp >= maxHeight){
+                if(temp == maxHeight){
+                    count++;
+                }
+                maxHeight = temp; 
             }
         }
         return count;
